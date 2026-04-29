@@ -19,11 +19,17 @@ It supports both MARKET and LIMIT orders and demonstrates trading logic with str
 
 
 ## How to Run
-- Install dependencies:
-  pip install -r requirements.txt
+1. Clone the repository:
+git clone https://github.com/YOUR-USERNAME/binance-trading-bot-cli.git
 
-- Run the program:
-  python cli.py
+2. Navigate to the folder:
+cd binance-trading-bot-cli
+
+3. Install dependencies:
+pip install -r requirements.txt
+
+4. Run the application:
+python cli.py
 
 
 ## Example Use Case
