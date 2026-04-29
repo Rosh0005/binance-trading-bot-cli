@@ -38,7 +38,7 @@ Simulate placing a LIMIT BUY order and check whether it executes based on the cu
 - Structuring Python projects
 
 
-## Sample Output (Optional)
+## Sample Output 
 Example of placing LIMIT and MARKET orders :
 ![CLI output](image.png)
 
