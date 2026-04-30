@@ -11,6 +11,8 @@ It supports both MARKET and LIMIT orders and demonstrates trading logic with str
 - Real-time price fetching from Binance
 - Order execution simulation
 - Logging system
+- Menu-driven CLI interface
+- View order history
 
 
 ## Tech Stack
