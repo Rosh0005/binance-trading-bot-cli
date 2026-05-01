@@ -48,7 +48,16 @@ Simulate placing a LIMIT BUY order and check whether it executes based on the cu
 
 ## Sample Output 
 Example of placing LIMIT and MARKET orders :
-![CLI output](image.png)
+<table>
+<tr>
+<td><b>Market Order</b></td>
+<td><b>Limit Order</b></td>
+</tr>
+<tr>
+<td><img src="market_order.png" width="400"></td>
+<td><img src="limit_order.png" width="400"></td>
+</tr>
+</table>
 
 
 ## Note
