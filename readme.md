@@ -53,3 +53,4 @@ Example of placing LIMIT and MARKET orders :
 
 ## Note
 This project simulates trading and does NOT place real orders.
+This project simulates order execution due to restricted access to Binance Futures Testnet.
