@@ -1,2 +1,2 @@
 from binance.client import Client
-client = Client("test", "test")
+client = Client("test","test")

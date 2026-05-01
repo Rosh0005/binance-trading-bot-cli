@@ -1,5 +1,7 @@
+import json
 from bot.utils import *
 from bot.orders import place_order
+
 while True :
     print("\n===== Trading Bot =====")
     print("1. Place Order")
@@ -16,13 +18,28 @@ while True :
             price = get_price()
         quantity = get_quantity()
         place_order(side,order_type,symbol,quantity,price)
+        print("\n------------------------------------------")
 
     elif choice == "2" :
         print("\n---Order History---")
         try :
             with open("orders.log","r") as file :
                 for line in file :
-                    print(line.strip())
+                    if line.strip() == "" :
+                        continue
+                    try :
+                        order = json.loads(line)
+                        print(f"\nTime       : {order.get('time', 'N/A')}")
+                        print(f"Symbol       : {order.get('symbol', 'N/A')}")
+                        print(f"Side         : {order.get('side', 'N/A')}")
+                        print(f"Order Type   : {order.get('order_type', 'N/A')}")
+                        print(f"Quantity     : {order.get('quantity', 'N/A')}")
+                        print(f"Price        : {order.get('price', 'N/A')}")
+                        print(f"Market Price : {order.get('market_price', 'N/A')}")
+                        print(f"Status       : {order.get('status', 'N/A')}")
+                    except json.JSONDecodeError :
+                        print("Skipping invalid log entry...")
+                        continue
         except FileNotFoundError :
             print("No orders found yet.")
 

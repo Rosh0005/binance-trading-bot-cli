@@ -1,5 +1,7 @@
 from bot.client import client
 import datetime
+import json 
+import logging
 
 def place_order(side,order_type,symbol,quantity,price=None) :
     print("\n---Order Summary---")
@@ -17,7 +19,7 @@ def place_order(side,order_type,symbol,quantity,price=None) :
         print("Invalid symbol or API")
         return 
     print(f"Current Price : {current_price}")
-    # order logic
+    #order logic
     status = ""
     message = ""
     if order_type == "MARKET" :
@@ -40,12 +42,21 @@ def place_order(side,order_type,symbol,quantity,price=None) :
                 message = f"Order pending at {current_price}"
     print(f"Status : {status}")
     print(message)
+
     # Logging
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = {
+        "time" : timestamp,
+        "symbol" : symbol,
+        "side" : side,
+        "order_type" : order_type,
+        "quantity" : quantity,
+        "price" : price if price else "MARKET",
+        "market_price" : current_price,
+        "status" : status
+    }
     with open("orders.log", "a") as file:
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        file.write(
-            f"{timestamp}, {symbol}, {side}, {order_type}, {quantity}, "
-            f"{price if price else 'MARKET'}, "
-            f"{current_price}, {status}\n"
-        )
+        json.dump(log_entry,file)
+        file.write("\n")
+        
     print("Order recorded successfully!")
